@@ -7,8 +7,8 @@ import com.udacity.shoestore.fragments.LoginFragmentDirections
 
 class LoginViewModel: ViewModel() {
 
-    fun getToOnBoardingScreen(v: View){
-        // we always assume that input is correct, so this method simply navigates to the Onboarding Fragment
+    fun getToWelcomeScreen(v: View){
+        // we always assume that input is correct, so this method simply navigates to the Welcome Fragment
         v.findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
     }
 }
