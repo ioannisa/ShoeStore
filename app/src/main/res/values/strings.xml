@@ -34,4 +34,6 @@
     \n\nEach item contains information regarding shoe title, shoe size, description, company and a list of image descriptions.
     \n\nThere are some images available for each type of shoe.  By defining a shoe type, the first image description on the images list gets filled with that item description.
         \n\nThe first image description if it matches one of the available images the list shows that image.  If it does not, it shoes the default image (Mens Shoes)</string>
+    <string name="incomplete_fields_error_msg">In order to add or commit any changes to a shoe item, all fields must have a value</string>
+    <string name="incomplete_fields_error_title">Shoe Item Error</string>
 </resources>

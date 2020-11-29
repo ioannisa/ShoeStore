@@ -14,6 +14,7 @@
             type="com.udacity.shoestore.viewmodels.ShoeDetailViewModel" />
     </data>
 
+    <!-- ConstraintLayout is a perfect choice as it allows for complex view positioning without layout nesting -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

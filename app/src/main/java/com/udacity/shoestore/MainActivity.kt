@@ -47,20 +47,4 @@ class MainActivity : AppCompatActivity() {
         this.onBackPressed()
         return super.onSupportNavigateUp()
     }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.overflow_menu, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.logout_menu_item -> {
-                // take global action that navigates to login screen and pops everything off the backstack
-                navController.navigate(NavigationDirections.actionGlobalLoginFragment())
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
 }

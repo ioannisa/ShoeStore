@@ -9,6 +9,7 @@ import com.udacity.shoestore.models.Shoe
 
 class ShoeDetailViewModel(var shoe: Shoe?, var isNewItem: Boolean): ViewModel() {
 
+    var alertDialogCount = MutableLiveData<Int>(0)
     var commitChanges = MutableLiveData<Boolean>()
 
     var shoeName = MutableLiveData<String>("")
@@ -38,8 +39,17 @@ class ShoeDetailViewModel(var shoe: Shoe?, var isNewItem: Boolean): ViewModel() 
     }
 
     fun commitChanges(v: View){
-        commitChanges.value = true
-        navigateUp(v)
+        if ((shoeName.value?.trim()=="") ||
+            (shoeCompany.value?.trim()=="") ||
+            (shoeDescription.value?.trim()=="") ||
+            (shoeSize.value?.trim()=="")
+        ){
+            alertDialogCount.value = alertDialogCount.value?.plus(1)
+        }
+        else {
+            commitChanges.value = true
+            navigateUp(v)
+        }
     }
 
     private fun populateControls(){

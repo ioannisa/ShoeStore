@@ -10,16 +10,27 @@
             type="com.udacity.shoestore.viewmodels.ShoesListViewModel" />
     </data>
 
+    <!-- FrameLayout allows for items to be drawn on top of eah other
+         It is a good choice to place the FAB Button on top and independently
+         of the LinearLayout that exists inside the ScrollView -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".fragments.ShoesListFragment">
 
+        <!-- A ScrollView can host only one item.  Here it hosts a LinearLayout
+             That will contain each row.
+             The Scrollview will occupy all the visible area (match_parent) in width & height
+             -->
         <ScrollView
             android:id="@+id/shoes_scroller"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <!-- This view group will host all the item rows vertically.
+                 It will occupy as much height as needed (wrap_content)
+                 so that the scrollbar will take over if the height exceed the available screen space
+                 -->
             <LinearLayout
                 android:id="@+id/shoes_list"
                 android:layout_width="match_parent"

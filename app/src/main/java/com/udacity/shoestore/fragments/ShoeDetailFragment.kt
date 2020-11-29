@@ -1,6 +1,8 @@
 package com.udacity.shoestore.fragments
 
+import android.app.AlertDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -76,6 +78,18 @@ class ShoeDetailFragment : Fragment() {
 
             if (viewModel.isNewItem){
                 sharedViewModel.shoesList.value?.add(displayedShoe)
+            }
+        })
+
+        viewModel.alertDialogCount.observe(viewLifecycleOwner, Observer {
+            if (it>0){
+                val builder = AlertDialog.Builder(context)
+                builder.setTitle(getString(R.string.incomplete_fields_error_title))
+                builder.setMessage(getString(R.string.incomplete_fields_error_msg))
+                builder.setPositiveButton(android.R.string.ok) { dialog, which ->
+
+                }
+                builder.show()
             }
         })
 
