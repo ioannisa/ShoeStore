@@ -49,10 +49,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    // Enable Navigation
-    //implementation "android.arch.navigation:navigation-fragment-ktx:$version_navigation"
-    //implementation "android.arch.navigation:navigation-ui-ktx:$version_navigation"
-
     // ViewModel + Live Data
     implementation"androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
     implementation"androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
