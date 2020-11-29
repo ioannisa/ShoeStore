@@ -6,7 +6,7 @@
 
         <variable
             name="itemRowClicked"
-            type="android.view.View.OnClickListener"/>
+            type="android.view.View.OnClickListener" />
 
         <variable
             name="shoe"
