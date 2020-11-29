@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="shoes_types">
+        <item>Men Shoes</item>
+        <item>Sneakers</item>
+        <item>High Heels</item>
+        <item>Boots</item>
+        <item>Cleats</item>
+    </string-array>
+</resources>

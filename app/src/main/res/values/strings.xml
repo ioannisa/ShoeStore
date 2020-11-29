@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">ShoeStore</string>
+    <string name="shoe_size_format">Size: %.1f</string>
+    <string name="shoe_image_description">Basic Shoe Image</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="signup">Sign Up</string>
+    <string name="login">Login</string>
+    <string name="brand_name">Shoe Store</string>
+    <string name="logout">Logout</string>
+    <string name="action_bar_welcome_msg">Welcome to Shoe Store</string>
+    <string name="action_bar_instructions_msg">Application Instructions</string>
+    <string name="action_bar_shoeslist_msg">Shoes Listing</string>
+    <string name="action_bar_login_msg">Shoe Store Login</string>
+    <string name="add_new_shoe">Add New Shoe</string>
+    <string name="action_bar_new_shoe_msg">New Shoe Item Dialog</string>
+    <string name="action_bar_edit_shoe_msg">Edit Existing Shoe Dialog</string>
+    <string name="shoe_name">Shoe Name</string>
+    <string name="company">Company</string>
+    <string name="shoe_size">Shoe Size</string>
+    <string name="description">Description</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="shoe_type">Shoe Type</string>
+    <string name="welcome_text">Welcome to the Shoe Store Android Application
+    \n\nThis App is part of the Kotlin Android Developer nanodegree.
+        \n\nYou will find code in here that demonstrates navigation with Fragment and basic HVVM architecture.
+    </string>
+    <string name="next">Next</string>
+    <string name="welcome">Welcome</string>
+    <string name="instructions">Instructions</string>
+    <string name="instructions_text">1. You can click existing items to edit them
+    \n\n2. You can press the Floating Action Button to add a new item to the list
+    \n\nEach item contains information regarding shoe title, shoe size, description, company and a list of image descriptions.
+    \n\nThere are some images available for each type of shoe.  By defining a shoe type, the first image description on the images list gets filled with that item description.
+        \n\nThe first image description if it matches one of the available images the list shows that image.  If it does not, it shoes the default image (Mens Shoes)</string>
+</resources>
