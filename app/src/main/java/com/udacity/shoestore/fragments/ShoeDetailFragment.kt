@@ -52,11 +52,7 @@ class ShoeDetailFragment : Fragment() {
 
         // Associate the ViewModel to the xml data variable named "viewModel"
         binding.viewModel = viewModel
-
-        // Activity Level ViewModel Assignment
-        sharedViewModel.shoesList.observe(viewLifecycleOwner, Observer {
-
-        })
+        binding.lifecycleOwner = this
 
         // get Action Bar title String Rersource Id, and display it
         viewModel.actionBarTitleId.observe(viewLifecycleOwner, Observer { resourceStringId ->
