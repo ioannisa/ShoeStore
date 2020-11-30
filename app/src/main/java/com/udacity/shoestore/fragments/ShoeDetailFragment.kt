@@ -81,13 +81,13 @@ class ShoeDetailFragment : Fragment() {
             }
         })
 
-        viewModel.alertDialogCount.observe(viewLifecycleOwner, Observer {
-            if (it>0){
+        viewModel.alertDialogEvent.observe(viewLifecycleOwner, Observer {showErrorDialog ->
+            if (showErrorDialog){
                 val builder = AlertDialog.Builder(context)
                 builder.setTitle(getString(R.string.incomplete_fields_error_title))
                 builder.setMessage(getString(R.string.incomplete_fields_error_msg))
                 builder.setPositiveButton(android.R.string.ok) { dialog, which ->
-
+                    viewModel.onAlertDialogShowed()
                 }
                 builder.show()
             }

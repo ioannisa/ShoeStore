@@ -1,6 +1,7 @@
 package com.udacity.shoestore.viewmodels
 
 import android.view.View
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.findNavController
@@ -9,16 +10,20 @@ import com.udacity.shoestore.models.Shoe
 
 class ShoeDetailViewModel(var shoe: Shoe?, var isNewItem: Boolean): ViewModel() {
 
-    var alertDialogCount = MutableLiveData<Int>(0)
-    var commitChanges = MutableLiveData<Boolean>()
+    private val _alertDialogEvent = MutableLiveData<Boolean>(false)
+    val alertDialogEvent: LiveData<Boolean>
+        get() = _alertDialogEvent
 
-    var shoeName = MutableLiveData<String>("")
-    var shoeCompany = MutableLiveData<String>("")
-    var shoeDescription = MutableLiveData<String>("")
-    var shoeSize = MutableLiveData<String>("")
-    var shoeImageIdx = MutableLiveData<Int>()
 
-    var actionBarTitleId: MutableLiveData<Int> = MutableLiveData()
+    val commitChanges = MutableLiveData<Boolean>()
+
+    val shoeName = MutableLiveData<String>()
+    val shoeCompany = MutableLiveData<String>()
+    val shoeDescription = MutableLiveData<String>()
+    val shoeSize = MutableLiveData<String>()
+    val shoeImageIdx = MutableLiveData<Int>()
+
+    val actionBarTitleId: MutableLiveData<Int> = MutableLiveData()
 
     private val imageTypes = arrayListOf<String>(
         "Men Shoes",
@@ -39,17 +44,21 @@ class ShoeDetailViewModel(var shoe: Shoe?, var isNewItem: Boolean): ViewModel() 
     }
 
     fun commitChanges(v: View){
-        if ((shoeName.value?.trim()=="") ||
-            (shoeCompany.value?.trim()=="") ||
-            (shoeDescription.value?.trim()=="") ||
-            (shoeSize.value?.trim()=="")
+        if ((shoeName.value?.trim()=="" || shoeName.value == null) ||
+            (shoeCompany.value?.trim()==""  || shoeCompany.value == null) ||
+            (shoeDescription.value?.trim()=="" || shoeDescription.value == null) ||
+            (shoeSize.value?.trim()=="" || shoeSize.value == null)
         ){
-            alertDialogCount.value = alertDialogCount.value?.plus(1)
+            _alertDialogEvent.value = true
         }
         else {
             commitChanges.value = true
             navigateUp(v)
         }
+    }
+
+    fun onAlertDialogShowed(){
+        _alertDialogEvent.value = false;
     }
 
     private fun populateControls(){
