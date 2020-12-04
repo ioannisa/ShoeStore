@@ -2,7 +2,6 @@ package com.udacity.shoestore.fragments
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,18 +17,15 @@ import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.viewmodels.SharedViewModel
 import com.udacity.shoestore.viewmodels.ShoeDetailViewModel
 import com.udacity.shoestore.viewmodels.ShoeDetailViewModelFactory
-import java.nio.channels.Selector
 
 class ShoeDetailFragment : Fragment() {
     private lateinit var binding: FragmentShoeDetailBinding
     private lateinit var args: ShoeDetailFragmentArgs
-    private var isNewItem = true
 
     private lateinit var viewModel: ShoeDetailViewModel
     private lateinit var viewModelFactory: ShoeDetailViewModelFactory
 
     private val sharedViewModel: SharedViewModel by activityViewModels()
-    private lateinit var itemSelector: Selector
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
