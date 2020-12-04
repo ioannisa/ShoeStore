@@ -58,7 +58,7 @@ class ShoeDetailViewModel(var shoe: Shoe?, var isNewItem: Boolean): ViewModel() 
     }
 
     fun onAlertDialogShowed(){
-        _alertDialogEvent.value = false;
+        _alertDialogEvent.value = false
     }
 
     private fun populateControls(){
@@ -74,7 +74,7 @@ class ShoeDetailViewModel(var shoe: Shoe?, var isNewItem: Boolean): ViewModel() 
             shoeName.value = shoe?.name ?: ""
             shoeCompany.value = shoe?.company ?: ""
             shoeDescription.value = shoe?.description ?: ""
-            shoeSize.value = shoe?.size.toString() ?: "0.0"
+            shoeSize.value = shoe?.size.toString()
 
             // the image
             val baseImageDescription = shoe?.images?.get(0) ?: "Mens Shoes"

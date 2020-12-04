@@ -20,22 +20,17 @@ class SharedViewModel: ViewModel() {
 
     init{
         _shoesList.value = ArrayList<Shoe>()
-        createDrawablesHashMap()
-        populateWithDummyData()
-    }
 
-    /**
-     * Gererate a HashMap<String,Int> descriptions of Image Drawables for our shoes
-     */
-    private fun createDrawablesHashMap(){
-        // default drawable images
+        // Gererate a HashMap<String,Int> descriptions of Image Drawables for our shoes
         with (shoeDrawables){
-            this["Men Shoes"] = R.drawable.mens;
+            this["Men Shoes"] = R.drawable.mens
             this["Sneakers"] = R.drawable.sport_shoes
             this["High Heels"] = R.drawable.high_heels
             this["Boots"] = R.drawable.mukluks
             this["Cleats"] = R.drawable.cleats
         }
+
+        populateWithDummyData()
     }
 
     /**

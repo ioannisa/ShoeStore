@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
@@ -28,7 +27,7 @@ class ShoeDetailFragment : Fragment() {
     private val sharedViewModel: SharedViewModel by activityViewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
 
         binding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_shoe_detail, container, false
@@ -37,11 +36,10 @@ class ShoeDetailFragment : Fragment() {
         args = ShoeDetailFragmentArgs.fromBundle(requireArguments())
 
         // Fragment Level ViewModel Assignment
-        var displayedShoe: Shoe? = null
-        if (args.shoe == null)
-            displayedShoe = Shoe("", 0.0, "", "", mutableListOf("Mens Shoes"))
+        val displayedShoe = if (args.shoe == null)
+            Shoe("", 0.0, "", "", mutableListOf("Mens Shoes"))
         else
-            displayedShoe = args.shoe
+            args.shoe
 
         viewModelFactory = ShoeDetailViewModelFactory(displayedShoe!!, (args.shoe==null))
         viewModel = ViewModelProvider(this, viewModelFactory).get(ShoeDetailViewModel::class.java)
@@ -51,16 +49,16 @@ class ShoeDetailFragment : Fragment() {
         binding.lifecycleOwner = this
 
         // get Action Bar title String Rersource Id, and display it
-        viewModel.actionBarTitleId.observe(viewLifecycleOwner, Observer { resourceStringId ->
+        viewModel.actionBarTitleId.observe(viewLifecycleOwner, { resourceStringId ->
             (activity as AppCompatActivity).supportActionBar?.title = getString(resourceStringId)
         })
 
         // if commit changes gets to true, we either update or insert item
-        viewModel.commitChanges.observe(viewLifecycleOwner, Observer {
+        viewModel.commitChanges.observe(viewLifecycleOwner, {
             var shoeSize: Double
             try {shoeSize = viewModel.shoeSize.value?.toDouble() ?: 0.0} catch(e: NumberFormatException) { shoeSize = 0.0}
 
-            displayedShoe?.apply {
+            displayedShoe.apply {
                 name = viewModel.shoeName.value.toString()
                 size = shoeSize
                 company = viewModel.shoeCompany.value.toString()
@@ -73,7 +71,7 @@ class ShoeDetailFragment : Fragment() {
             }
         })
 
-        viewModel.alertDialogEvent.observe(viewLifecycleOwner, Observer {showErrorDialog ->
+        viewModel.alertDialogEvent.observe(viewLifecycleOwner, { showErrorDialog ->
             if (showErrorDialog){
                 val builder = AlertDialog.Builder(context)
                 builder.setTitle(getString(R.string.incomplete_fields_error_title))
@@ -86,7 +84,7 @@ class ShoeDetailFragment : Fragment() {
         })
 
         // set the spinner to display the correct type of shoe, so it is resembled as image correctly
-        viewModel.shoeImageIdx.observe(viewLifecycleOwner, Observer {
+        viewModel.shoeImageIdx.observe(viewLifecycleOwner, {
             binding.shoeTypesSpinner.setSelection(it?:2)
         })
 

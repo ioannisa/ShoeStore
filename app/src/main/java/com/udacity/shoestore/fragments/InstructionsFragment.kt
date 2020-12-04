@@ -17,7 +17,7 @@ class InstructionsFragment : Fragment() {
     private lateinit var viewModel: InstructionsViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
 
         // Data  Binding
         binding = DataBindingUtil.inflate(

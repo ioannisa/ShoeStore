@@ -17,7 +17,7 @@ class WelcomeFragment : Fragment() {
     private lateinit var viewModel: WelcomeViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?): View? {
+        savedInstanceState: Bundle?): View {
 
         // Data Binding
         binding = DataBindingUtil.inflate(
